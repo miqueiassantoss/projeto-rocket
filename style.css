@@ -1,0 +1,167 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /*Isso aqui fizemos pra zerar todas configurações que o navegador coloca*/
+}
+
+:root { /*esse root serve pra criar variaveis, e text color é o nome da variável criada aqui em baixo*/
+  --text-color: white;
+  --bg-url: url(./assets/bg-desktop.jpg);
+  --stroke-color:rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.1);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(255, 255, 255, 0.2);
+  --switch-bg-url: url(./assets/moon-stars.svg)
+}
+
+.light {
+  --text-color: black;
+  --bg-url:url(./assets/bg-desktop-light.jpg);
+  --stroke-color: rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(0, 0, 0, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(0, 0, 0, 0.1);
+  --switch-bg-url: url(./assets/sun.svg)
+}
+
+body {
+  background: var(--bg-url);
+  background-repeat: no-repeat;
+  background-position: top center; /*Colocamos esse Top pra imagem começar no começo da pagina, caso contrário, perderiamos metade da imagem porque ela começaria da metade*/
+  color: var(--text-color);
+  background-size: cover; /*fala que é pra cobrir todo o background*/
+}
+
+body * { /* esse asteristico serve pra selecionar todos elementos dentro do body*/
+  font-family: 'inter', sans-serif;
+  color: var(--text-color);
+}
+
+#container {
+  width: 360px;
+  margin: 56px auto 0px; /*pra centralizar nas laterais*/
+  padding: 0 24px;
+  
+}
+
+
+
+#profile {
+  text-align: center;
+  padding: 24px;
+}
+
+#profile img {
+  width: 112px;
+}
+
+#profile p {
+  font-weight: 500;
+  line-height: 24px;
+  margin-top: 8px;
+}
+
+/*switch*/
+#switch {
+  position: relative; /*colocamos isso pra ele ficar relativo ao absoluto que está ali embaixo, não entendi muito bem, é confuso*/
+  width: 64px; /* pra deixar do mesmo tamanho  da caixa e não ficar sobrando espaço*/
+  
+  margin:18px auto auto auto;
+}
+
+
+
+#switch button {
+  width: 32px;
+  height: 32px;
+  background: white var(--switch-bg-url) no-repeat center;
+  border: 0;
+  border-radius: 50%;
+
+  position: absolute; /*isso daqui faz com que um sobreponha o outro*/
+  left: 0;
+  z-index: 1; /*isso aqui serve pra você fazer um sobrepor o outro, se você coloca o valor zero inverte a camada*/
+  top: 50%; /* isso aqui joga junto com o de baixo, faz descer 50%, dessa forma ele fica centralizado.*/
+  transform: translateY(-50%); /*isso faz o elemento subir 50%*/
+}
+
+.light #switch button {
+  right: 0; /* faz com que quando acionaer o light o botão vá pra direita*/
+  left: initial; /*de extrema importância pra que funcione*/
+}
+
+
+#switch span {
+  display: block; /*mudamos pq por padrão era inline e não aceita largura/altura*/
+  width: 64px;
+  height: 24px;
+  background: var(--surface-color);
+  border: 1px var(--stroke-color);
+  backdrop-filter: blur(4px);
+  border-radius: 9999px;
+}
+
+
+
+/*LISTAS*/
+
+ul{
+  list-style: none; /*pra tirar as bolinhas que ficam no inicio da lista*/
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px 0;
+}
+
+ul li a{
+  display: flex;
+  justify-content: center; /*alinha o conteúdo ao meio, text align também funcionária*/
+  align-items: center; /*Alinha os itens no meio da caixa no eixo X*/
+  padding: 16px 24px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  border-radius: 8px;
+  backdrop-filter: blur(4px);
+  text-decoration: none; /*isso serve pra tirar a linha de baixo do texto*/
+  font-weight: 500; 
+  transition: background .2s; /*Faz com que a transição fique mais suave, sempre faça isso fora do hover*/
+}
+
+ul li a:hover /*hover serve pra aplicar as coisas quando passar o mouse em cima*/{
+background: var(--surface-color-hover);
+border: 1.5px solid var(--text-color);
+}
+
+#social {
+  display: flex;
+  justify-content: center;
+  padding: 24px 0px;
+  font-size: 24px; /*mudar o tamanho dos icones*/
+}
+
+#social a{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  transition: background 0.2s;
+  border-radius: 50%; /*pra fazer do bacground um circulo*/
+}
+
+#social a:hover {
+  background: var(--highlight-color);
+
+}
+
+footer {
+  padding: 24px 0;
+  text-align: center;
+  font-size: 14px;
+  
+}
+
+footer a {
+  text-decoration: none;
+}
+
