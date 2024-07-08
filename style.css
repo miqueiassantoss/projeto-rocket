@@ -30,7 +30,7 @@ body {
   background-repeat: no-repeat;
   background-position: top center; /*Colocamos esse Top pra imagem começar no começo da pagina, caso contrário, perderiamos metade da imagem porque ela começaria da metade*/
   color: var(--text-color);
-  background-size: cover; /*fala que é pra cobrir todo o background*/
+  background-size: cover; /*fala que é pra cobrir todo o background.*/
   height: 100vh;
 }
 
