@@ -86,11 +86,21 @@ body * { /* esse asteristico serve pra selecionar todos elementos dentro do body
   z-index: 1; /*isso aqui serve pra você fazer um sobrepor o outro, se você coloca o valor zero inverte a camada*/
   top: 50%; /* isso aqui joga junto com o de baixo, faz descer 50%, dessa forma ele fica centralizado.*/
   transform: translateY(-50%); /*isso faz o elemento subir 50%*/
+
+  animation: slide-back 0.2s; 
 }
 
+
 .light #switch button {
-  right: 0; /* faz com que quando acionaer o light o botão vá pra direita*/
+  animation: slide-in 0.2s forwards;
+  /* essa parte do forwards serve pra o botão continuar onde deixei, pois é uma animação, se não colocar ele ele, quando a animação acabar ele volta*/
+  /*como era antes da animação
+  right: 0; /* faz com que quando acionaer o light o botão vá pra direita
   left: initial; /*de extrema importância pra que funcione*/
+}
+
+#switch button:hover {
+  outline: 8px solid var(--highlight-color); /*outline serve pra desenhar borda ao redor do elemento*/
 }
 
 
@@ -168,7 +178,7 @@ footer a {
 }
 
 
-/* media queries */ /*tudo que começa com @ em css é uma "at-ruler"*/
+/* media queries */ /*tudo que começa com @ em css é uma "@rules"*/
 
 @media (min-width: 700px) {
   :root {
@@ -176,5 +186,24 @@ footer a {
   }
   .light {
     --bg-url: url(./assets/bg-desktop-light.jpg);
+  }
+}
+
+/*animation*/
+@keyframes slide-in /*eu que criei o nome*/ {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes slide-back {
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0;
   }
 }
